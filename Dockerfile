@@ -11,9 +11,9 @@ RUN mkdir imgCap_project
 WORKDIR /imgCap_project
 
 
-COPY requirements.txt /imgCap_project/requirements.txt
+COPY requirements.txt /imgCap_project/requirement.txt
 
-RUN pip install -r /imgCap_project/requirements.txt
+RUN pip install -r /imgCap_project/requirement.txt
 
 COPY . /imgCap_project
 
