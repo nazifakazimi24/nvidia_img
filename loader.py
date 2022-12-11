@@ -5,7 +5,7 @@ from os import listdir
 from os.path import isdir, join
 import pandas as pd
 
-from main import clip_vit_model
+from project import clip_vit_model
 
 def load_image(foldername):
     """
