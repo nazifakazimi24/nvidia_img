@@ -1,16 +1,21 @@
-FROM python:3.10
+FROM ubuntu:latest
 
 RUN apt-get update \
+  && apt-get install -y python3-pip python3-dev \
+  && cd /usr/local/bin \
+  && ln -s /usr/bin/python3 python \
   && pip3 install --upgrade pip
 
-#WORKDIR /src
+
+RUN mkdir imgCap_project
+WORKDIR /imgCap_project
 
 
-RUN mkdir app
+COPY requirements.txt /imgCap_project/requirements.txt
 
-WORKDIR ./app
+RUN pip install -r /imgCap_project/requirements.txt
 
-COPY test.py .
+COPY . /imgCap_project
 
-#ENV ROKINDATA=/src
-CMD ["python", "./test.py"]
+
+CMD ["python", "./query_processing.py"]
